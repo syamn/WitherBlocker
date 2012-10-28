@@ -92,7 +92,7 @@ public class BlockListener implements Listener{
         Block check = null;
         for (BlockFace face : directions){
             check = block.getRelative(face);
-            if ((isTriggeredBlock(check) && check.getRelative(BlockFace.DOWN).equals(Material.SOUL_SAND))
+            if ((isTriggeredBlock(check) && check.getRelative(BlockFace.DOWN).getType().equals(Material.SOUL_SAND))
                     || isTriggeredBlock(check.getRelative(face))){
                 return false;
             }
