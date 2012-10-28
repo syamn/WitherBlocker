@@ -3,7 +3,7 @@
   <groupId>syam.witherblocker</groupId>
   <artifactId>WitherBlocker</artifactId>
   <version>0.1-SNAPSHOT</version>
-  <name>Likes</name>
+  <name>WitherBlocker</name>
   <description>CraftBukkit WitherBlocker Plugin</description>
 
   <!-- Properties -->
