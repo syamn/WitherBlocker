@@ -46,6 +46,7 @@ public class ConfigurationManager {
     /* Basic Configs */
     private List<String> whiteWorlds = new ArrayList<String>();
     private boolean useSpawnEvent = true;
+    private String deniedMessage = "You do not have permission to do this!";
     /* Other Configs */
     private boolean debug = false;
 
@@ -83,6 +84,7 @@ public class ConfigurationManager {
         /* Basic Configs */
         whiteWorlds = plugin.getConfig().getStringList("WhiteWorlds");
         useSpawnEvent = plugin.getConfig().getBoolean("CancelWitherSpawnEvent", true);
+        deniedMessage = plugin.getConfig().getString("DeniedMessage", "You do not have permission to do this!");
 
         /* Other Configs */
         debug = plugin.getConfig().getBoolean("Debug", false);
@@ -95,6 +97,9 @@ public class ConfigurationManager {
     }
     public boolean useSpawnEvent(){
         return useSpawnEvent;
+    }
+    public String getDeniedMessage(){
+        return deniedMessage;
     }
     /* Verbose Configs */
     public boolean isDebug(){

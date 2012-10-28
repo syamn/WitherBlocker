@@ -10,6 +10,7 @@ WhiteWorlds:
 - white_world
 
 CancelWitherSpawnEvent: true
+DeniedMessage: '&cYou do not have permission to do this!'
 
 #==================#
 #   Other Config   #

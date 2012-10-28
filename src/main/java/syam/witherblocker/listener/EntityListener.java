@@ -25,16 +25,14 @@ public class EntityListener implements Listener{
     private final static String msgPrefix = WitherBlocker.msgPrefix;
 
     private final WitherBlocker plugin;
-    private final ConfigurationManager configs;
 
     public EntityListener(final WitherBlocker instance){
         this.plugin = instance;
-        this.configs = instance.getConfigs();
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onCreatureSpawn(final CreatureSpawnEvent event){
-        if (!event.getEntityType().equals(EntityType.WITHER) || !configs.useSpawnEvent()){
+        if (!event.getEntityType().equals(EntityType.WITHER) || !plugin.getConfigs().useSpawnEvent()){
             return;
         }
 

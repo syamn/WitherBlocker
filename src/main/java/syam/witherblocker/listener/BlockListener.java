@@ -19,6 +19,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import syam.witherblocker.ConfigurationManager;
 import syam.witherblocker.WitherBlocker;
 import syam.witherblocker.permission.Perms;
+import syam.witherblocker.util.Actions;
 
 /**
  * BlockListener (BlockListener.java)
@@ -30,11 +31,9 @@ public class BlockListener implements Listener{
     private final static String msgPrefix = WitherBlocker.msgPrefix;
 
     private final WitherBlocker plugin;
-    private final ConfigurationManager configs;
 
     public BlockListener(final WitherBlocker instance){
         this.plugin = instance;
-        this.configs = instance.getConfigs();
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
@@ -57,6 +56,7 @@ public class BlockListener implements Listener{
         if (!isPlaceable(event.getPlayer(), event.getBlock(), event.canBuild())){
             event.setBuild(false);
             event.setCancelled(true);
+            Actions.message(event.getPlayer(), plugin.getConfigs().getDeniedMessage());
         }
     }
 
@@ -76,11 +76,10 @@ public class BlockListener implements Listener{
             return false;
         }
 
-        /*
-        if (!block.getRelative(BlockFace.DOWN).getType().equals(Material.SOUL_SAND)){
+        // ignore white worlds
+        if (plugin.getConfigs().getWhiteWorlds().contains(block.getLocation().getWorld().getName())){
             return true;
         }
-        */
 
         // check
         final BlockFace[] directions = new BlockFace[]{
