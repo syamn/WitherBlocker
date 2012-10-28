@@ -11,6 +11,7 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import syam.witherblocker.listener.BlockListener;
 import syam.witherblocker.listener.EntityListener;
 import syam.witherblocker.util.Metrics;
 
@@ -26,6 +27,7 @@ public class WitherBlocker extends JavaPlugin{
 
     // ** Listener **
     private final EntityListener entityListener = new EntityListener(this);
+    private final BlockListener blockListener = new BlockListener(this);
 
     // ** Classes **
     private ConfigurationManager config;
@@ -51,6 +53,7 @@ public class WitherBlocker extends JavaPlugin{
 
         // Setup Listeners
         pm.registerEvents(entityListener, this);
+        pm.registerEvents(blockListener, this);
 
         // メッセージ表示
         PluginDescriptionFile pdfFile=this.getDescription();

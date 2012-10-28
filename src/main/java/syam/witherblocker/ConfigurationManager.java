@@ -45,6 +45,7 @@ public class ConfigurationManager {
     // 設定項目
     /* Basic Configs */
     private List<String> whiteWorlds = new ArrayList<String>();
+    private boolean useSpawnEvent = true;
     /* Other Configs */
     private boolean debug = false;
 
@@ -81,6 +82,7 @@ public class ConfigurationManager {
 
         /* Basic Configs */
         whiteWorlds = plugin.getConfig().getStringList("WhiteWorlds");
+        useSpawnEvent = plugin.getConfig().getBoolean("CancelWitherSpawnEvent", true);
 
         /* Other Configs */
         debug = plugin.getConfig().getBoolean("Debug", false);
@@ -90,6 +92,9 @@ public class ConfigurationManager {
     /* Basic Configs */
     public List<String> getWhiteWorlds(){
         return whiteWorlds;
+    }
+    public boolean useSpawnEvent(){
+        return useSpawnEvent;
     }
     /* Verbose Configs */
     public boolean isDebug(){

@@ -34,7 +34,7 @@ public class EntityListener implements Listener{
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onCreatureSpawn(final CreatureSpawnEvent event){
-        if (!event.getEntityType().equals(EntityType.WITHER)){
+        if (!event.getEntityType().equals(EntityType.WITHER) || !configs.useSpawnEvent()){
             return;
         }
 

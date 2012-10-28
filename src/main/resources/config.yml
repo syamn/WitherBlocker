@@ -9,6 +9,8 @@ WhiteWorlds:
 - this_is_a
 - white_world
 
+CancelWitherSpawnEvent: true
+
 #==================#
 #   Other Config   #
 #==================#
