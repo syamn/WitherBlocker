@@ -5,17 +5,9 @@
 #==================#
 #   Basic Config   #
 #==================#
-# none :3
-
-#========================#
-#   Permissions Config   #
-#========================#
-# Use Permissions List
-Permissions:
-- vault
-- pex
-- superperms
-- ops
+WhiteWorlds:
+- this_is_a
+- white_world
 
 #==================#
 #   DO NOT TOUCH   #
