@@ -1,0 +1,13 @@
+##  Plugin Information  ##
+name: WitherBlocker
+version: version-number-unknown
+main: syam.witherblocker.WitherBlocker
+description: Prevents wither griefing!
+website: http://sakura-server.net/
+softdepend: [PermissionsEx]
+##  Original Author     ##
+author: syam
+permissions:
+    witherblocker.allow:
+        default: op
+        description: Allow spawn wither
