@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>syam.witherblocker</groupId>
   <artifactId>WitherBlocker</artifactId>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1</version>
   <name>WitherBlocker</name>
   <description>CraftBukkit WitherBlocker Plugin</description>
 
