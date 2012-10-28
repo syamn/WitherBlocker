@@ -45,6 +45,8 @@ public class ConfigurationManager {
     // 設定項目
     /* Basic Configs */
     private List<String> whiteWorlds = new ArrayList<String>();
+    /* Other Configs */
+    private boolean debug = false;
 
     /**
      * コンストラクタ
@@ -79,12 +81,19 @@ public class ConfigurationManager {
 
         /* Basic Configs */
         whiteWorlds = plugin.getConfig().getStringList("WhiteWorlds");
+
+        /* Other Configs */
+        debug = plugin.getConfig().getBoolean("Debug", false);
     }
 
     // 設定 getter ここから
     /* Basic Configs */
     public List<String> getWhiteWorlds(){
         return whiteWorlds;
+    }
+    /* Verbose Configs */
+    public boolean isDebug(){
+        return debug;
     }
 
     // 設定 getter ここまで

@@ -81,6 +81,12 @@ public class WitherBlocker extends JavaPlugin{
         }
     }
 
+    public void debug(final String msg){
+        if (getConfigs().isDebug()){
+            log.info(logPrefix+"[Debug] " + msg);
+        }
+    }
+
     /**
      * Return ConfigurationManager
      * @return ConfigurationManager

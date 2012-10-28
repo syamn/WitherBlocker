@@ -12,6 +12,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 
+import syam.witherblocker.ConfigurationManager;
 import syam.witherblocker.WitherBlocker;
 
 /**
@@ -23,9 +24,12 @@ public class EntityListener implements Listener{
     private final static String logPrefix = WitherBlocker.logPrefix;
     private final static String msgPrefix = WitherBlocker.msgPrefix;
 
-    public static WitherBlocker plugin;
+    private final WitherBlocker plugin;
+    private final ConfigurationManager configs;
+
     public EntityListener(final WitherBlocker instance){
         this.plugin = instance;
+        this.configs = instance.getConfigs();
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
@@ -34,8 +38,15 @@ public class EntityListener implements Listener{
             return;
         }
 
-        if (plugin.getConfigs().getWhiteWorlds().isEmpty() 
-                || !plugin.getConfigs().getWhiteWorlds().contains(event.getLocation().getWorld().getName())){
+        plugin.debug("Caught Wither spawning!");
+
+        if (plugin.getConfigs().getWhiteWorlds().isEmpty()){
+            plugin.debug("WhiteWorlds is Empty! Cancelling CreatureSpawnEvent!");
+            event.setCancelled(true);
+        }
+
+        if (!plugin.getConfigs().getWhiteWorlds().contains(event.getLocation().getWorld().getName())){
+            plugin.debug("World " + event.getLocation().getWorld().getName() + " is not contains WhiteWorlds! Cancelling CreatureSpawnEvent!");
             event.setCancelled(true);
         }
     }
